@@ -21,12 +21,9 @@ FROM python:3.12-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# eccodes 本体 + 開発ヘッダをインストール
+# 必要なら証明書だけ入れておく（なくてもOKなことが多い）
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      eccodes \
-      libeccodes0 \
-      libeccodes-dev \
       ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
@@ -39,5 +36,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # アプリケーションコード
 COPY . .
 
-# デフォルトの起動：今回は GRIB 取り込み
+# デフォルトの起動：GRIB 取り込み
 CMD ["python", "ingest_grib.py"]
