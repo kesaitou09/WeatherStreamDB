@@ -3,3 +3,4 @@ xarray
 cfgrib
 eccodes
 numpy
+requests
