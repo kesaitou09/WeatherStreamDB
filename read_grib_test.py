@@ -9,6 +9,7 @@ def main(){
     print(ds)
     # どんな変数があるか
     print(ds.data_vars)
+    aaaaaa
 
 }
 if __name__ == "__main__":
